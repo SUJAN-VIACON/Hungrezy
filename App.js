@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwindcss-react-native";
 import LoginScreen from "./screens/LoginScreen";
+import PasswordResetScreen from "./screens/PasswordResetScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import SplashScreen from "./screens/SplashScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
