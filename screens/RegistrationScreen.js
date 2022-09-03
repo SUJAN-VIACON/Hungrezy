@@ -3,9 +3,10 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import SocialMediaReferences from "../components/SocialMediaReferences";
+import { authentication } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-
-const RegistrationScreen = ({navigation}) => {
+const RegistrationScreen = ({ navigation }) => {
   const [fromData, setFromData] = useState({});
 
   const handleForm = (data) => {
@@ -15,12 +16,29 @@ const RegistrationScreen = ({navigation}) => {
     });
   };
 
+  const handleRegistration = () => {
+  
+      createUserWithEmailAndPassword(authentication, fromData.email, fromData.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("user is signed in")
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage)
+        });
+    
+  };
+
   return (
     <SafeAreaView className="p-10 flex justify-between flex-1">
       <Text className="text-primary text-2xl font-bold text-center mt-5">
         Hungrezy
       </Text>
-  
+
       <View className="">
         <View className="space-y-5">
           <Form title="Register">
@@ -47,7 +65,10 @@ const RegistrationScreen = ({navigation}) => {
               type="password"
             />
 
-            <TouchableOpacity className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl" onPress={()=>navigation.navigate("LoginScreen")}>
+            <TouchableOpacity
+              className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl"
+              onPress={() => handleRegistration()}
+            >
               <Text className="text-center text-white tracking-widest">
                 REGISTER
               </Text>
@@ -56,14 +77,12 @@ const RegistrationScreen = ({navigation}) => {
         </View>
 
         <View className="mb-10 mt-5 flex-1 flex-row items-center justify-center space-x-1">
-          <Text className="">
-          Already have an account?
-          </Text>
+          <Text className="">Already have an account?</Text>
           <TouchableOpacity>
             <Text className="text-primary text-center">Login</Text>
           </TouchableOpacity>
         </View>
-        
+
         <SocialMediaReferences title="Sign up with" />
       </View>
     </SafeAreaView>
