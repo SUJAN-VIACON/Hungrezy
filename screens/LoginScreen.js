@@ -3,15 +3,22 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import SocialMediaReferences from "../components/SocialMediaReferences";
+import { AuthenticationService } from "../services/AuthenticatoinService";
 
 const LoginScreen = ({ navigation }) => {
-  const [fromData, setFromData] = useState({});
+  const [formData, setFormData] = useState({});
 
   const handleForm = (data) => {
-    setFromData({
-      ...fromData,
+    setFormData({
+      ...formData,
       ...data,
     });
+  };
+
+  const handleLogin = async () => {
+    if (!formData.email || !formData.password) return;
+    const { user, error } = await new AuthenticationService().login(formData);
+    if (user) navigation.navigate("HomeScreen");
   };
 
   return (
@@ -27,7 +34,7 @@ const LoginScreen = ({ navigation }) => {
             <Input
               label="E-mail"
               placeholder="Enter your E-mail"
-              value={fromData?.email}
+              value={formData?.email}
               callBack={(data) => handleForm({ email: data })}
               type="email"
             />
@@ -35,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
             <Input
               label="Password"
               placeholder="Enter your password"
-              value={fromData?.password}
+              value={formData?.password}
               callBack={(data) => handleForm({ password: data })}
               type="password"
             />
@@ -46,7 +53,7 @@ const LoginScreen = ({ navigation }) => {
 
             <TouchableOpacity
               className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl"
-              onPress={() => navigation.navigate("RegistrationScreen")}
+              onPress={() => handleLogin()}
             >
               <Text className="text-center text-white tracking-widest">
                 LOGIN
@@ -56,9 +63,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
 
         <View className="mb-10 mt-5 flex-1 flex-row items-center justify-center space-x-1">
-          <Text className="">
-            Don’t have an account?
-          </Text>
+          <Text className="">Don’t have an account?</Text>
           <TouchableOpacity>
             <Text className="text-primary text-center">Register</Text>
           </TouchableOpacity>

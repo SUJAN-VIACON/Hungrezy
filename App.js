@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwindcss-react-native";
+import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import PasswordResetScreen from "./screens/PasswordResetScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
@@ -36,6 +37,11 @@ export default function App() {
            <Stack.Screen
             name="PasswordResetScreen"
             component={PasswordResetScreen}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

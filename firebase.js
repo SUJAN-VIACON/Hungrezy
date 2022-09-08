@@ -11,11 +11,9 @@ const firebaseConfig = {
   storageBucket: "foodapplication-55b8e.appspot.com",
   messagingSenderId: "868028755225",
   appId: "1:868028755225:web:725e4df4fe910847c5e988",
-  measurementId: "G-7VGQ6XJY6H",
+  measurementId: "G-7VGQ6XJY6H"
 };
 
 const app = initializeApp(firebaseConfig);
 // const db = getFirestore();
-const authentication = getAuth(app);
-
-export {authentication, GoogleAuthProvider };
+export const authentication = getAuth(app);
