@@ -7,6 +7,7 @@ import { AuthenticationService } from "../services/AuthenticatoinService";
 
 const LoginScreen = ({ navigation }) => {
   const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState();
 
   const handleForm = (data) => {
     setFormData({
@@ -18,6 +19,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     if (!formData.email || !formData.password) return;
     const { user, error } = await new AuthenticationService().login(formData);
+    if (error) setErrorMessage(error);
     if (user) navigation.navigate("HomeScreen");
   };
 
@@ -47,6 +49,12 @@ const LoginScreen = ({ navigation }) => {
               type="password"
             />
 
+            {errorMessage && (
+              <Text className=" text-primary text-center font-xs">
+                {errorMessage}
+              </Text>
+            )}
+
             <TouchableOpacity className="mb-7">
               <Text className="text-primary text-center">Forgot password?</Text>
             </TouchableOpacity>
@@ -64,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
 
         <View className="mb-10 mt-5 flex-1 flex-row items-center justify-center space-x-1">
           <Text className="">Don’t have an account?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
             <Text className="text-primary text-center">Register</Text>
           </TouchableOpacity>
         </View>

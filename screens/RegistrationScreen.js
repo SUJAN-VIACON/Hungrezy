@@ -7,9 +7,6 @@ import { authentication } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { AuthenticationService } from "../services/AuthenticatoinService";
 
-
-
-
 const RegistrationScreen = ({ navigation }) => {
   const [fromData, setFromData] = useState({});
 
@@ -36,50 +33,45 @@ const RegistrationScreen = ({ navigation }) => {
 
       <View className="">
         <View className="space-y-5">
-          
-              <Form
-                title="Register"
-               
-              >
-                <Input
-                  label="Full Name"
-                  placeholder="Enter your name"
-                  value={fromData?.name}
-                  callBack={(data) => handleForm({ name: data })}
-                />
+          <Form title="Register">
+            <Input
+              label="Full Name"
+              placeholder="Enter your name"
+              value={fromData?.name}
+              callBack={(data) => handleForm({ name: data })}
+            />
 
-                <Input
-                  label="E-mail"
-                  placeholder="Enter your E-mail"
-                  value={fromData?.email}
-                  callBack={(data) => handleForm({ email: data })}
-                  type="email"
-                />
+            <Input
+              label="E-mail"
+              placeholder="Enter your E-mail"
+              value={fromData?.email}
+              callBack={(data) => handleForm({ email: data })}
+              type="email"
+            />
 
-                <Input
-                  label="Password"
-                  placeholder="Enter your password"
-                  value={fromData?.password}
-                  callBack={(data) => handleForm({ password: data })}
-                  type="password"
-                />
+            <Input
+              label="Password"
+              placeholder="Enter your password"
+              value={fromData?.password}
+              callBack={(data) => handleForm({ password: data })}
+              type="password"
+            />
 
-                <TouchableOpacity
-                  className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl"
-                  onPress={() => handleRegistration()}
-                >
-                  <Text className="text-center text-white tracking-widest">
-                    REGISTER
-                  </Text>
-                </TouchableOpacity>
-              </Form>
-           
+            <TouchableOpacity
+              className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl"
+              onPress={() => handleRegistration()}
+            >
+              <Text className="text-center text-white tracking-widest">
+                REGISTER
+              </Text>
+            </TouchableOpacity>
+          </Form>
         </View>
 
         <View className="mb-10 mt-5 flex-1 flex-row items-center justify-center space-x-1">
           <Text className="">Already have an account?</Text>
-          <TouchableOpacity>
-            <Text className="text-primary text-center">Login</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            <Text className="text-primary text-center py-3">Login</Text>
           </TouchableOpacity>
         </View>
 
