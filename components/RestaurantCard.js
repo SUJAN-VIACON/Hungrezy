@@ -2,6 +2,7 @@ import React from "react";
 import { Image, Text, View } from "react-native";
 import { MapPinIcon, StarIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../sanity";
+import Shadow from "./Shadow";
 
 const RestaurantCard = ({
   id,
@@ -16,7 +17,7 @@ const RestaurantCard = ({
   lat,
 }) => {
   return (
-    <View className="bg-white mr-3 shadow rounded-xl" key={id}>
+    <Shadow className="bg-white mr-3 shadow rounded-xl my-2 ml-2" key={id}>
       <Image
         source={{ uri: urlFor(imageUrl).url() }}
         className="w-64 h-36 rounded-tl-xl rounded-tr-xl"
@@ -34,7 +35,7 @@ const RestaurantCard = ({
           <Text className="text-xs text-gray-500">Nearby . {address}</Text>
         </View>
       </View>
-    </View>
+    </Shadow>
   );
 };
 

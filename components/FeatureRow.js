@@ -26,7 +26,7 @@ const FeatureRow = ({ id, title, description }) => {
 
 
   return (
-    <View className="mt-10" key={id}>
+    <View className="mt-2" key={id}>
       <View className="flex-row justify-between">
         <Text className="text-lg font-bold">{title}</Text>
         <Text className=" text-xs text-[#9B9998]">view all</Text>
