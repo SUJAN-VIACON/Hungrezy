@@ -6,6 +6,7 @@ import SocialMediaReferences from "../components/SocialMediaReferences";
 import { authentication } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { AuthenticationService } from "../services/AuthenticatoinService";
+import Shadow from "../components/Shadow";
 
 const RegistrationScreen = ({ navigation }) => {
   const [fromData, setFromData] = useState({});
@@ -57,13 +58,12 @@ const RegistrationScreen = ({ navigation }) => {
               type="password"
             />
 
-            <TouchableOpacity
-              className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl"
-              onPress={() => handleRegistration()}
-            >
-              <Text className="text-center text-white tracking-widest">
-                REGISTER
-              </Text>
+            <TouchableOpacity onPress={() => handleRegistration()}>
+              <Shadow color="#E60023" className="bg-primary p-4 rounded-full mx-10 drop-shadow-xl">
+                <Text className="text-center text-white tracking-widest">
+                  REGISTER
+                </Text>
+              </Shadow>
             </TouchableOpacity>
           </Form>
         </View>

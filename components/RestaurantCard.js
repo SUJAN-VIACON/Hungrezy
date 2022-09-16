@@ -17,7 +17,7 @@ const RestaurantCard = ({
   lat,
 }) => {
   return (
-    <Shadow className="bg-white mr-3 shadow rounded-xl my-2 ml-2" key={id}>
+    <Shadow className="bg-white mr-3 rounded-xl my-2 ml-2" key={id}>
       <Image
         source={{ uri: urlFor(imageUrl).url() }}
         className="w-64 h-36 rounded-tl-xl rounded-tr-xl"

@@ -5,14 +5,16 @@ import {
   Image,
   TextInput,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import BottomNavbar from "../components/BottomNavbar";
-import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import { MagnifyingGlassIcon, Bars3Icon } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import client from "../sanity";
 import { useEffect, useLayoutEffect, useState } from "react";
 import FeatureRow from "../components/FeatureRow";
 import NewMorph from "../components/NewMorph";
+import Shadow from "../components/Shadow";
 
 const HomeScreen = () => {
   const [featuredCategories, setFeaturedCategories] = useState([1, 5]);
@@ -36,11 +38,10 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="flex-1 relative pt-7 ">
       <View className="p-5">
-        <View className="flex-row justify-between align-center">
-          <Image
-            source={require("../assets/images/menu-button.png")}
-            className=" h-16 w-12 rounded-xl"
-          />
+        <View className="flex-row justify-between align-center ">
+          <Shadow className="bg-white rounded-lg h-12 w-12 overflow-hidden justify-center items-center">
+            <Bars3Icon color="black" size={40} />
+          </Shadow>
           <View className=" justify-center items-center">
             <Text className="text-[#989CA3]">Deliver To</Text>
             <Text className="text-primary">New Town, Kolkata</Text>
@@ -64,24 +65,14 @@ const HomeScreen = () => {
               className="p-3 text-xs "
             />
           </View>
-          <View
-            className="bg-white items-center justify-center px-3 rounded-lg shadow-lg"
-            style={{
-              shadowColor: "#5c5959",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.23,
-              shadowRadius: 2.62,
-              elevation: 4,
-            }}
-          >
-            <Image
-              source={require("../assets/images/filter-icon.png")}
-              className="h-7 w-7"
-            />
-          </View>
+          <TouchableOpacity>
+            <Shadow className="bg-white items-center justify-center px-3 rounded-lg p-3">
+              <Image
+                source={require("../assets/images/filter-icon.png")}
+                className="h-7 w-7"
+              />
+            </Shadow>
+          </TouchableOpacity>
         </View>
 
         <Categories />

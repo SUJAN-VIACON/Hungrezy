@@ -6,9 +6,10 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import Shadow from "./Shadow";
 
 const SocialMediaReferences = ({
-  title=null,
+  title = null,
   titleSize = "xs",
   color = "black",
   lineWidth = null,
@@ -30,19 +31,23 @@ const SocialMediaReferences = ({
         ></View>
       </View>
       <View className="flex-row justify-between items-center">
-        <TouchableOpacity className="flex-row items-center bg-white rounded-full p-4 space-x-2 drop-shadow-lg">
-          <Image
-            source={require("../assets/images/facebook.png")}
-            className=" h-5 w-5"
-          />
-          <Text>FACEBOOK</Text>
+        <TouchableOpacity>
+          <Shadow className="flex-row items-center bg-white rounded-full p-4 space-x-2">
+            <Image
+              source={require("../assets/images/facebook.png")}
+              className=" h-5 w-5"
+            />
+            <Text>FACEBOOK</Text>
+          </Shadow>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center bg-white rounded-full p-4 space-x-2 drop-shadow-lg">
-          <Image
-            source={require("../assets/images/google.png")}
-            className=" h-5 w-5 rounded-full"
-          />
-          <Text>GOOGLE</Text>
+        <TouchableOpacity>
+          <Shadow className="flex-row items-center bg-white rounded-full p-4 space-x-2">
+            <Image
+              source={require("../assets/images/google.png")}
+              className=" h-5 w-5 rounded-full"
+            />
+            <Text>GOOGLE</Text>
+          </Shadow>
         </TouchableOpacity>
       </View>
     </View>
