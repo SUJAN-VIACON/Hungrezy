@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+
+import * as yup from "yup";
+import { Formik } from "formik";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { Formik } from "formik";
-import * as yup from "yup";
+import FormSubmitButton from "../components/FormSubmitButton";
 import SocialMediaReferences from "../components/SocialMediaReferences";
 import { AuthenticationService } from "../services/AuthenticatoinService";
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
-import FormSubmitButton from "../components/FormSubmitButton";
 
 
 const registrationValidationSchema = yup.object().shape({
@@ -83,7 +84,9 @@ const RegistrationScreen = ({ navigation }) => {
                   type="password"
                   errors={errors?.password}
                 />
-                <FormSubmitButton onPress={handleSubmit} />
+
+                <FormSubmitButton title="REGISTER" onPress={handleSubmit} />
+
               </Form>
 
             )}
@@ -93,7 +96,7 @@ const RegistrationScreen = ({ navigation }) => {
         <View className="mb-10 mt-5 flex-1 flex-row items-center justify-center space-x-1">
           <Text className="">Already have an account?</Text>
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-            <Text className="text-primary text-center py-3">Login</Text>
+            <Text className="text-primary text-center py-3 underline">Login</Text>
           </TouchableOpacity>
         </View>
 

@@ -40,7 +40,7 @@ const HomeScreen = () => {
       <View className="p-5">
         <View className="flex-row justify-between align-center ">
           <Shadow className="bg-white rounded-lg h-12 w-12 overflow-hidden justify-center items-center">
-            <Bars3Icon color="black" size={40} />
+            <Bars3Icon color="#989CA3" size={40} />
           </Shadow>
           <View className=" justify-center items-center">
             <Text className="text-[#989CA3]">Deliver To</Text>
