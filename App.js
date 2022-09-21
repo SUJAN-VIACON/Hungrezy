@@ -1,5 +1,3 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwindcss-react-native";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -7,9 +5,13 @@ import PasswordResetScreen from "./screens/PasswordResetScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import SplashScreen from "./screens/SplashScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import RestaurantScreen from "./screens/RestaurantScreen";
+import { NavigationContainer } from '@react-navigation/native';
+
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const Stack = createSharedElementStackNavigator();
   return (
     <NavigationContainer>
       <TailwindProvider>
@@ -34,15 +36,23 @@ export default function App() {
             component={LoginScreen}
             options={{ headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="PasswordResetScreen"
             component={PasswordResetScreen}
             options={{ headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
             options={{ headerShown: false }}
+          />
+
+          <Stack.Screen name="Restaurant" component={RestaurantScreen}
+            sharedElements={(route, otherRoute, showing) => {
+              const { id } = route.params;
+
+              return [`item.${id}.photo`];
+            }}
           />
         </Stack.Navigator>
       </TailwindProvider>
