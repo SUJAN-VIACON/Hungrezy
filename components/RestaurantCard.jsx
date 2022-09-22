@@ -4,8 +4,7 @@ import { MapPinIcon, StarIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../sanity";
 import Shadow from "./Shadow";
 import { useNavigation } from "@react-navigation/native";
-import { SharedElement } from 'react-navigation-shared-element';
-  
+import { SharedElement } from "react-navigation-shared-element";
 
 const RestaurantCard = ({
   id,
@@ -19,11 +18,9 @@ const RestaurantCard = ({
   long,
   lat,
 }) => {
-
   const navigation = useNavigation();
   return (
-
-    <View className="bg-white mr-3 rounded-xl my-2 ml-2" key={id}>
+    <Shadow className="bg-white mr-3 rounded-xl my-2 ml-2" key={id}>
       <TouchableOpacity
         onPress={() =>
           navigation.navigate("Restaurant", {
@@ -39,13 +36,11 @@ const RestaurantCard = ({
             lat,
           })
         }
-
       >
         <SharedElement id={`item.${id}.photo`}>
           <Image
             source={{ uri: urlFor(imageUrl).url() }}
             className="w-64 h-36 rounded-tl-xl rounded-tr-xl"
-            resizeMode="contain"
           />
         </SharedElement>
         <View className="px-3 pb-4">
@@ -62,8 +57,7 @@ const RestaurantCard = ({
           </View>
         </View>
       </TouchableOpacity>
-    </View>
-
+    </Shadow>
   );
 };
 
