@@ -51,6 +51,7 @@ const RestaurantScreen = () => {
                         <Image
                             source={{ uri: urlFor(imageUrl).url() }}
                             className=" w-full h-56 bg-gray-400 p-4"
+                            resizeMode="contain"
                         />
                     </SharedElement>
                     <TouchableOpacity

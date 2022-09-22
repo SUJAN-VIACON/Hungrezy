@@ -45,6 +45,7 @@ const RestaurantCard = ({
           <Image
             source={{ uri: urlFor(imageUrl).url() }}
             className="w-64 h-36 rounded-tl-xl rounded-tr-xl"
+            resizeMode="contain"
           />
         </SharedElement>
         <View className="px-3 pb-4">
