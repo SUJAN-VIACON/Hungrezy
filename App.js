@@ -50,9 +50,9 @@ export default function App() {
           <Stack.Screen name="Restaurant" component={RestaurantScreen}
             sharedElements={(route, otherRoute, showing) => {
               const { id } = route.params;
-
               return [`item.${id}.photo`];
             }}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </TailwindProvider>

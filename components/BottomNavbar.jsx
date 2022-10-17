@@ -27,7 +27,7 @@ const BottomNavbar = () => {
     <View className="bg-white p-5 absolute bottom-0 w-full z-50 flex-row justify-between items-center">
       {navbar.map((item, key) => (
         <View key={key}>
-          <Image source={item.icon} className=" h-7 w-7" />
+          <Image source={item.icon} className=" h-7 w-7" resizeMode="contain"/>
         </View>
       ))}
     </View>

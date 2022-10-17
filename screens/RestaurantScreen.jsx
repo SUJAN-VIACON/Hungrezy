@@ -19,6 +19,8 @@ import {
 import { urlFor } from "../sanity";
 const { width, height } = Dimensions.get("window");
 import { SharedElement } from 'react-navigation-shared-element';
+import Categories from "../components/Categories";
+import DishRow from "../components/DishRow";
 
 
 const RestaurantScreen = () => {
@@ -39,59 +41,35 @@ const RestaurantScreen = () => {
         },
     } = useRoute();
 
-   
-
 
     return (
-        <View className={`flex-1`}>
+        <SafeAreaView className="px-7 pt-16">
             {/* <BasketIcon /> */}
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
                 <View className="relative">
                     <SharedElement id={`item.${id}.photo`}>
                         <Image
                             source={{ uri: urlFor(imageUrl).url() }}
-                            className=" w-full h-56 bg-gray-400 p-4"
+                            className=" h-56 w-full rounded-xl"
                         />
                     </SharedElement>
                     <TouchableOpacity
                         onPress={navigation.goBack}
-                        className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full"
+                        className="absolute top-3 left-3 p-2 bg-gray-100  rounded-xl"
                     >
-                        <ArrowLeftIcon size={20} color="#00CCBB" />
+                        <ArrowLeftIcon size={20} color="black" />
                     </TouchableOpacity>
                 </View>
 
-                {/* <View className="bg-white">
-                    <View className="px-4 pt-4">
-                        <Text className="text-3xl font-bold">{title}</Text>
-                        <View className="flex-row space-x-2 my-1">
-                            <View className="flex-row space-x-1 items-center">
-                                <StarIcon size={22} opacity={0.5} color="green" />
-                                <Text className="text-gray-500 text-xs">
-                                    <Text className="text-green-500">{rating}</Text> . {genre}
-                                </Text>
-                            </View>
-                            <View className="flex-row space-x-1 items-center">
-                                <LocationMarkerIcon size={22} opacity={0.4} color="gray" />
-                                <Text className="text-gray-500 text-xs">
-                                    Nearby . {address}
-                                </Text>
-                            </View>
-                        </View>
+                <View className="my-7">
+                    <Text className="text-3xl font-bold  text-[#323643]">{title}</Text>
+                </View>
 
-                        <Text className="text-gray-500 mt-2 pb-4">{shortDescription}</Text>
-                    </View>
+                <Categories />
 
-                    <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-400 ">
-                        <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20} />
-                        <Text className="pl-2 text-md font-bold flex-1">
-                            Have a food allergy?
-                        </Text>
-                        <ChevronRightIcon color="#00CCBB " />
-                    </TouchableOpacity>
-                </View> */}
-
-                {/* <View className="pb-36">
+                <View className="pb-36">
                     <Text className="text-xl font-bold px-4 pt-6 mb-3">Menu</Text>
                     {dishes.map((dish) => (
                         <DishRow
@@ -103,9 +81,9 @@ const RestaurantScreen = () => {
                             image={dish.image}
                         />
                     ))}
-                </View> */}
+                </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 };
 

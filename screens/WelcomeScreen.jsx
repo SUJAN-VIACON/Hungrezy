@@ -61,7 +61,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <Text className="underline">Login</Text>
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation.navigate('HomeScreen')}>
               <Text className="text-primary text-right pt-10 pb-5 underline text-base">
                 Skip
               </Text>
