@@ -4,8 +4,7 @@ import { MapPinIcon, StarIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../sanity";
 import Shadow from "./Shadow";
 import { useNavigation } from "@react-navigation/native";
-import { SharedElement } from 'react-navigation-shared-element';
-  
+import { SharedElement } from "react-navigation-shared-element";
 
 const RestaurantCard = ({
   id,
@@ -19,7 +18,6 @@ const RestaurantCard = ({
   long,
   lat,
 }) => {
-
   const navigation = useNavigation();
   return (
 
@@ -39,7 +37,6 @@ const RestaurantCard = ({
             lat,
           })
         }
-
       >
         <SharedElement id={`item.${id}.photo`}>
           <Image

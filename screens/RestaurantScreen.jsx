@@ -52,7 +52,7 @@ const RestaurantScreen = () => {
                     <SharedElement id={`item.${id}.photo`}>
                         <Image
                             source={{ uri: urlFor(imageUrl).url() }}
-                            className=" h-56 w-full rounded-xl"
+                            className=" w-full h-56 bg-gray-400 p-4"
                         />
                     </SharedElement>
                     <TouchableOpacity
