@@ -79,5 +79,7 @@ export default function App() {
         </TailwindProvider>
       </Provider>
     </NavigationContainer>
+
+// https://expo.dev/artifacts/83e77d9e-855f-472c-9f7f-aa8e037284c9
   );
 }
